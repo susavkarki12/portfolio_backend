@@ -1,13 +1,15 @@
+
 package com.susav.portfolio.service.Impl;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
 
 import com.susav.portfolio.Dto.UserDto;
 import com.susav.portfolio.Model.UserDetailsEntity;
 import com.susav.portfolio.repository.UserRepository;
 import com.susav.portfolio.service.UserService;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UserImpl implements UserService {
@@ -33,20 +35,16 @@ public class UserImpl implements UserService {
 
     private UserDetailsEntity mapToEntity(UserDto dto){
         UserDetailsEntity userDetailsEntity = new UserDetailsEntity();
-        userDetailsEntity.setName(dto.getName());
-        userDetailsEntity.setEmail(dto.getEmail());
-        userDetailsEntity.setDescription((dto.getDescription()));
-
+        userDetailsEntity.setText(dto.getText());
+        userDetailsEntity.setLabel(dto.getLabel());
         return userDetailsEntity;
     }
 
     private UserDto mapToDto(UserDetailsEntity entity){
         UserDto userDto = new UserDto();
         userDto.setId(entity.getId());
-        userDto.setName(entity.getName());
-        userDto.setEmail(entity.getEmail());
-        userDto.setDescription(entity.getDescription());
-
+        userDto.setText(entity.getText());
+        userDto.setLabel(entity.getLabel());
         return userDto;
     }
 }

@@ -15,14 +15,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="record")
+@Table(name="cyberbullying_database")
 public class UserDetailsEntity {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String description;
+    private String text;
+    private String label;
+    // private String description;
 
 }
